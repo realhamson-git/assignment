@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block 'content' %}
+<h1  style="margin-top: 2rem;margin-left: 2rem;">Sign Up</h1>
+<div class="col col-md col-6">
+  {% if messages %} {% for message in messages %}<div class="alert alert-primary" style="margin-left: 2rem;" role="{{ message.tags }}">
+    {{ message }}
+  </div>{% endfor %}{% endif %}
+</div>
+  <div class="col col-md col-10">
+    <form class="row g-3" style="margin-top: 2rem;margin-left: 2rem;" action="#" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+        <div class="col-auto">
+          <input type="text"  class="form-control" name="username"  placeholder="username" required>
+        </div>
+        <div class="col-auto">
+          <input type="text"  class="form-control" name="firstname" placeholder="firstname" required>
+        </div>
+        <div class="col-auto">
+          <input type="text"  class="form-control" name="lastname"  placeholder="lastname" required>
+        </div>
+        <div class="col-auto">
+          <input type="text"  class="form-control" name="email"  placeholder="email" required>
+        </div>
+        <div class="col-auto">
+          <input type="password" class="form-control" name="password"  placeholder="Password" required>
+        </div>
+        <div class="col-auto">
+          <input type="password" class="form-control" name="confirmPassword"  placeholder="confirm Password" required>
+        </div>
+        <div class="col-auto">
+          <input type="text"  class="form-control" name="address1"  placeholder="address" required>
+        </div>
+        <div class="col-auto">
+          <input type="text"  class="form-control" name="address2"  placeholder="address-2" required>
+        </div>
+        <div class="col-auto">
+          <input type="file"  class="form-control" name="profile"  placeholder="profile" required>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="type" id="flexRadioDefault1" value="doctor">
+          <label class="form-check-label" for="flexRadioDefault1">Doctor</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="type" id="flexRadioDefault2" value="patient">
+          <label class="form-check-label" for="flexRadioDefault2">Patient</label>
+         </div>
+        <div class="col-auto">
+          <input type="submit" class="btn btn-primary mb-3" value="Submit">
+        </div>
+      </form>
+    </div>
+      <div class="col-auto" style="margin-left: 2rem;">
+        <a href="{% url 'signin' %}" class="btn btn-primary mb-3">Sign In</a>
+      </div>
+{% endblock 'content' %}

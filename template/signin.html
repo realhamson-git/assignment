@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+<h1 style="margin-top: 2rem;margin-left: 2rem;">Sign in</h1>
+  <div class="col col-md col-6">
+    {% if messages %} {% for message in messages %}<div class="alert alert-primary" style="margin-left: 2rem;" role="{{ message.tags }}">
+      {{ message }}
+    </div>{% endfor %}{% endif %}
+  </div>
+    <form class="row g-3" style="margin-top: 2rem;margin-left: 2rem;" action=" # " method="POST"> {% csrf_token %}
+        <div class="col-auto">
+          <input type="text"  class="form-control" name = "username" id="staticEmail2" placeholder="username" required>
+        </div>
+        <div class="col-auto">
+          <input type="password" class="form-control" name="password" id="inputPassword2" placeholder="Password" required>
+        </div>
+        <div class="col-auto">
+          <input type="submit" class="btn btn-primary mb-3" value="submit">
+        </div>
+      </form>
+      <div class="col-auto" style="margin-left: 2rem;">
+        <a href=" {% url 'signup' %} "  class="btn btn-primary mb-3">Sign Up</a>
+      </div>
+{% endblock 'content' %}
